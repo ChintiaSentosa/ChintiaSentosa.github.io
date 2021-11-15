@@ -6,10 +6,13 @@
         rel="stylesheet">
         <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
         <link rel="stylesheet" href="css/style.css" media="screen,projection">
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#00897B"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title>PWEB Movie</title>
- </head>
-
+        
+<title>PWEB Movie</title>
+</head>
+ 
  <body>
 
  <nav class="black" role="navigation">
@@ -81,7 +84,23 @@
     });
  </script>
 
-
+<script type="text/javascript">
+    // REGISTER SERVICE WORKER
+    if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+    navigator.serviceWorker
+    .register("js/sw.js")
+    .then(function() {
+    console.log("Pendaftaran ServiceWorker berhasil");
+    })
+    .catch(function() {
+    console.log("Pendaftaran ServiceWorker gagal");
+    });
+    });
+    } else {
+    console.log("ServiceWorker belum didukung browser ini.");
+    }
+    </script>
  </body>
 </html>
 
